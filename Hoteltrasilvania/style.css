@@ -1,0 +1,306 @@
+/* Importação de fontes modernas e temáticas */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Paleta de Cores */
+  --bg-main: #0a0612;
+  --panel-bg: rgba(22, 14, 38, 0.75);
+  --panel-border: rgba(139, 92, 246, 0.2);
+
+  --primary-purple: #8b5cf6;
+  --primary-glow: rgba(139, 92, 246, 0.35);
+  --vampire-red: #e11d48;
+  --vampire-red-glow: rgba(225, 29, 72, 0.4);
+  --gold-accent: #f59e0b;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --input-bg: rgba(10, 6, 18, 0.6);
+
+  /* Layout e Animações */
+  --radius-lg: 20px;
+  --radius-md: 10px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset Global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  /* Fundo dinâmico com gradientes profundos */
+  background-image:
+    radial-gradient(circle at 50% 0%, #311042 0%, transparent 60%),
+    radial-gradient(circle at 85% 90%, #4c0519 0%, transparent 40%),
+    radial-gradient(circle at 15% 50%, #1e1b4b 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 16px;
+}
+
+/* Container Principal com Efeito Glassmorphism */
+.container {
+  width: 100%;
+  max-width: 720px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(139, 92, 246, 0.1);
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cabeçalhos */
+h1 {
+  font-family: "Cinzel Decorative", serif;
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--text-main);
+  text-shadow: 0 0 16px var(--primary-purple);
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 1.15rem;
+  color: #c084fc;
+  margin: 28px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2::before {
+  content: "🦇";
+  font-size: 1rem;
+  filter: drop-shadow(0 0 6px var(--primary-purple));
+}
+
+/* Divisores */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--panel-border),
+    transparent
+  );
+  margin: 24px 0;
+}
+
+/* Form Controls & Inputs */
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin: 14px 0 6px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--input-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 12px var(--primary-glow);
+  background: rgba(10, 6, 18, 0.85);
+}
+
+/* Icone do seletor de data */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8) sepia(1) saturate(5) hue-rotate(220deg);
+  cursor: pointer;
+}
+
+/* Estilização Moderna para Radio e Checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--input-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  transition: var(--transition);
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+  background: var(--vampire-red);
+  border-color: var(--vampire-red);
+  box-shadow: 0 0 10px var(--vampire-red-glow);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Labels de Radio e Checkbox */
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  display: inline-block;
+  margin: 0 0 12px 10px;
+  text-transform: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* Botão de Finalizar Hospedagem */
+button#calcular {
+  width: 100%;
+  padding: 16px;
+  margin-top: 12px;
+  background: linear-gradient(135deg, var(--vampire-red) 0%, #9f1239 100%);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  font-family: "Cinzel Decorative", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px var(--vampire-red-glow);
+}
+
+button#calcular:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(225, 29, 72, 0.6);
+  background: linear-gradient(135deg, #f43f5e 0%, var(--vampire-red) 100%);
+}
+
+button#calcular:active {
+  transform: translateY(0);
+}
+
+/* Cartão do Recibo */
+#recibo {
+  background: rgba(10, 6, 18, 0.5);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-top: 16px;
+}
+
+#recibo p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+#recibo p:last-child {
+  border-bottom: none;
+}
+
+#recibo span {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Destaque do Total no Recibo */
+#recibo p:has(#rTotal) {
+  padding: 14px 0;
+  margin: 6px 0;
+  border-top: 1px dashed var(--primary-purple);
+  border-bottom: 1px dashed var(--primary-purple);
+  font-size: 1.05rem;
+}
+
+#recibo span#rTotal {
+  color: var(--gold-accent);
+  font-size: 1.25rem;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .container {
+    padding: 24px 18px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Número Misterioso</title>
+  </head>
+  <body>
+    <script>
+      let numero = 5;
+      let tentativas = 5;
+      let rodadas = 1;
+
+      while (tentativas > 0) {
+        let seuChute = Number(prompt("Tente adivinhar o número misterioso")); //inicio do sistema
+
+        if (seuChute > numero) {
+          alert(`O número ${seuChute} é maior que o número misterioso.
+Você ainda tem ${tentativas - 1} tentativas.`);
+        } else if (seuChute < numero) {
+          alert(`O número ${seuChute} é menor que o número misterioso.
+Você ainda tem ${tentativas - 1} tentativas.`);
+        } else {
+          alert(`Parabéns! Você acertou em ${rodadas} tentativa(s).
+O número secreto era ${numero}.`);
+
+          break;
+        }
+        tentativas--;
+        rodadas++;
+      }
+
+      if (tentativas === 0) {
+        alert(`Suas tentativas acabaram! O número era ${numero}.`);
+      }
+    </script>
+  </body>
+</html>

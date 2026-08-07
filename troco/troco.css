@@ -1,0 +1,129 @@
+/* RESET E CONFIGURAÇÕES BASICAS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* CONTAINER PRINCIPAL (Aproveitando o body para centralizar) */
+h1 {
+  color: #1a252f;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* FORMULÁRIO E INPUTS */
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+/* OCULTAR OU AJUSTAR AS QUEBRAS DE LINHA NATIVAS <br> */
+br {
+  display: none;
+}
+
+/* BOTÃO */
+button#calcular {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 25px;
+  padding: 14px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease;
+}
+
+button#calcular:hover {
+  background-color: #27ae60;
+}
+
+button#calcular:active {
+  transform: scale(0.98);
+}
+
+/* DIVISÓRIA */
+hr {
+  width: 100%;
+  max-width: 400px;
+  border: 0;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 30px 0 20px 0;
+}
+
+/* ÁREA DE RESULTADO */
+h2 {
+  color: #2c3e50;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+p {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border-left: 4px solid #3498db;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  display: flex;
+  justify-content: space-between;
+}
+
+p span {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* DESTAQUE DE STATUS SE DIVERGENTE (Opcional, via JS você pode adicionar classes) */
+#resultadoStatus {
+  color: #27ae60;
+}

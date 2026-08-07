@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Transilvânia</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🏨 Hotel Transilvânia</h1>
+
+      <hr />
+
+      <h2>Dados do Hóspede</h2>
+
+      <label>Nome</label>
+      <input type="text" id="nome" />
+
+      <label>CPF</label>
+      <input type="text" id="cpf" />
+
+      <label>Telefone</label>
+      <input type="text" id="telefone" />
+
+      <label>Cidade</label>
+      <input type="text" id="cidade" />
+
+      <hr />
+
+      <h2>Hospedagem</h2>
+
+      <label>Data de Entrada</label>
+      <input type="date" id="entrada" />
+
+      <label>Quantidade de Diárias</label>
+      <input type="number" id="diarias" value="1" min="1" />
+
+      <label>Quantidade de Adultos</label>
+      <input type="number" id="adultos" value="1" min="1" />
+
+      <label>Quantidade de Crianças</label>
+      <input type="number" id="criancas" value="0" min="0" />
+
+      <hr />
+
+      <h2>Tipo de Quarto</h2>
+
+      <input
+        type="radio"
+        id="standard"
+        name="quarto"
+        value="180"
+        data-nome="Standard"
+      />
+      <label for="standard">Standard (R$180)</label>
+
+      <br />
+
+      <input
+        type="radio"
+        id="luxo"
+        name="quarto"
+        value="320"
+        data-nome="Luxo"
+      />
+      <label for="luxo">Luxo (R$320)</label>
+
+      <br />
+
+      <input
+        type="radio"
+        id="presidencial"
+        name="quarto"
+        value="650"
+        data-nome="Presidencial"
+      />
+      <label for="presidencial">Presidencial (R$650)</label>
+
+      <hr />
+
+      <h2>Serviços</h2>
+
+      <input
+        type="checkbox"
+        id="cafe"
+        name="adicionais"
+        value="35"
+        data-tipo="por-pessoa-dia"
+        data-nome="Café da Manhã"
+      />
+      <label for="cafe">Café da Manhã (R$35 por pessoa/dia)</label>
+
+      <br />
+
+      <input
+        type="checkbox"
+        id="almoco"
+        name="adicionais"
+        value="60"
+        data-tipo="por-pessoa-dia"
+        data-nome="Almoço"
+      />
+      <label for="almoco">Almoço (R$60 por pessoa/dia)</label>
+
+      <br />
+
+      <input
+        type="checkbox"
+        id="jantar"
+        name="adicionais"
+        value="75"
+        data-tipo="por-pessoa-dia"
+        data-nome="Jantar"
+      />
+      <label for="jantar">Jantar (R$75 por pessoa/dia)</label>
+
+      <br />
+
+      <input
+        type="checkbox"
+        id="lavanderia"
+        name="adicionais"
+        value="45"
+        data-tipo="fixo"
+        data-nome="Lavanderia"
+      />
+      <label for="lavanderia">Lavanderia (R$45)</label>
+
+      <br />
+
+      <input
+        type="checkbox"
+        id="estacionamento"
+        name="adicionais"
+        value="25"
+        data-tipo="por-dia"
+        data-nome="Estacionamento"
+      />
+      <label for="estacionamento">Estacionamento (R$25 por dia)</label>
+
+      <br />
+
+      <input
+        type="checkbox"
+        id="piscina"
+        name="adicionais"
+        value="80"
+        data-tipo="fixo"
+        data-nome="Piscina Aquecida"
+      />
+      <label for="piscina">Piscina Aquecida (R$80)</label>
+
+      <br />
+
+      <input
+        type="checkbox"
+        id="academia"
+        name="adicionais"
+        value="30"
+        data-tipo="fixo"
+        data-nome="Academia"
+      />
+      <label for="academia">Academia (R$30)</label>
+
+      <hr />
+
+      <h2>Pagamento</h2>
+
+      <label>Forma de Pagamento</label>
+
+      <select id="pagamento">
+        <option value="">Selecione</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="pix">PIX</option>
+        <option value="debito">Cartão Débito</option>
+        <option value="credito">Cartão Crédito</option>
+      </select>
+
+      <br /><br />
+
+      <label>Valor Pago</label>
+
+      <input type="number" id="valorPago" step="0.01" />
+
+      <br /><br />
+
+      <button id="calcular">Finalizar Hospedagem</button>
+
+      <hr />
+
+      <h2>Recibo</h2>
+
+      <div id="recibo">
+        <p>Nome: <span id="rNome"></span></p>
+        <p>CPF: <span id="rCpf"></span></p>
+        <p>Cidade: <span id="rCidade"></span></p>
+        <p>Quarto: <span id="rQuarto"></span></p>
+        <p>Diárias: <span id="rDiarias"></span></p>
+        <p>Adultos: <span id="rAdultos"></span></p>
+        <p>Crianças: <span id="rCriancas"></span></p>
+        <p>Valor das Diárias: <span id="rValorDiarias"></span></p>
+        <p>Valor dos Serviços: <span id="rServicos"></span></p>
+        <p>Descontos: <span id="rDesconto"></span></p>
+        <p>Taxas: <span id="rTaxa"></span></p>
+        <p>Total: <span id="rTotal"></span></p>
+        <p>Forma de Pagamento: <span id="rPagamento"></span></p>
+        <p>Valor Pago: <span id="rValorPago"></span></p>
+        <p>Troco: <span id="rTroco"></span></p>
+        <p>Status: <span id="rStatus"></span></p>
+      </div>
+    </div>
+
+    <script src="hotel.js"></script>
+  </body>
+</html>

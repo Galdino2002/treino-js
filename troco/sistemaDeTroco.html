@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Caixa</title>
+    <link rel="stylesheet" href="troco.css" />
+  </head>
+
+  <body>
+    <h1>Sistema de Caixa</h1>
+
+    <label for="produto">Produto:</label>
+    <input type="text" id="produto" />
+    <br /><br />
+
+    <label for="valor">Valor da Compra (R$):</label>
+    <input type="number" id="valor" step="0.01" />
+    <br /><br />
+
+    <label for="pagamento">Valor Pago (R$):</label>
+    <input type="number" id="pagamento" step="0.01" />
+    <br /><br />
+
+    <button id="calcular">Calcular Troco</button>
+
+    <hr />
+
+    <h2>Resultado</h2>
+
+    <p>Produto : <span id="resultadoProduto"></span></p>
+    <p>Valor da Compra : <span id="resultadoValor"></span></p>
+    <p>Valor Pago : <span id="resultadoPago"></span></p>
+    <p>Troco : <span id="resultadoTroco"></span></p>
+    <p>Status : <span id="resultadoStatus"></span></p>
+
+    <script>
+      const botao = document.getElementById("calcular");
+      botao.addEventListener("click", calcularTroco);
+
+      function calcularTroco() {
+        const produto = document.getElementById("produto").value;
+        const valorCompra = Number(document.getElementById("valor").value);
+        const valorPago = Number(document.getElementById("pagamento").value);
+        let troco = valorPago - valorCompra;
+
+        //produto
+        if (produto.trim() === "") {
+          alert("digite um produto");
+        } else {
+          document.getElementById("resultadoProduto").textContent = produto;
+        }
+        //valor compra
+        if (valorCompra.toFixed() == String) {
+          alert("n pode digitar letras aqui, apenas numeros");
+        } else if (valorCompra <= 0) {
+          alert("valor da compra não pode ser zero");
+        } else {
+          document.getElementById("resultadoValor").textContent =
+            valorCompra.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            });
+        }
+        //valor pago
+        if (valorPago.toFixed() == String) {
+          alert("n pode digitar letras aqui, apenas numeros");
+        } else if (valorPago <= 0) {
+          alert("valor da compra não pode ser zero");
+        } else {
+          document.getElementById("resultadoPago").textContent =
+            valorPago.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            });
+        }
+
+        //troco
+        if (troco < 0) {
+          troco = troco * -1;
+          document.getElementById("resultadoTroco").textContent =
+            troco.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            });
+        } else {
+          document.getElementById("resultadoTroco").textContent =
+            troco.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            });
+        }
+
+        //status
+        if (valorCompra > 50) {
+          document.getElementById("resultadoStatus").textContent = "muito caro";
+        } else {
+          document.getElementById("resultadoStatus").textContent =
+            "muito barato";
+        }
+      }
+    </script>
+  </body>
+</html>

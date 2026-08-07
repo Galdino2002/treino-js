@@ -1,0 +1,268 @@
+/* ==========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --primary-color: #0d6efd; /* Azul principal */
+  --primary-hover: #0b5ed7; /* Azul escuro (hover) */
+  --accent-color: #ff6b00; /* Laranja vibrante para destaques/alertas */
+  --accent-hover: #e05e00;
+  --bg-color: #f4f6f9; /* Fundo geral neutro */
+  --card-bg: #ffffff; /* Fundo dos cards/conteúdo */
+  --text-primary: #1a252f; /* Texto principal */
+  --text-secondary: #6c757d; /* Texto secundário/subtítulos */
+  --border-color: #e9ecef; /* Bordas sutis */
+  --danger-color: #dc3545; /* Vermelho para exclusão */
+  --radius: 8px; /* Arredondamento padrão */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  padding: 20px 15px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   CONTAINER PRINCIPAL
+   ========================================== */
+main {
+  max-width: 850px;
+  margin: 20px auto;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--primary-color);
+}
+
+/* ==========================================
+   TÍTULOS E CABEÇALHOS
+   ========================================== */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--text-primary);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* ==========================================
+   FORMULÁRIO E CAMPOS
+   ========================================== */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Faz o botão e o último campo ocuparem a largura total */
+form > div:nth-child(3),
+form > div:nth-child(4) {
+  grid-column: span 1;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ced4da;
+  border-radius: var(--radius);
+  font-size: 15px;
+  background-color: #fff;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+/* ==========================================
+   BOTÕES
+   ========================================== */
+button[type="submit"] {
+  grid-column: span 2;
+  margin-top: 10px;
+  padding: 14px;
+  border: none;
+  background: var(--primary-color);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+  background: var(--primary-hover);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.99);
+}
+
+/* Botão Excluir (Inserido dinamicamente no JS na tabela) */
+.btn-excluir {
+  background-color: transparent;
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-excluir:hover {
+  background-color: var(--danger-color);
+  color: #ffffff;
+}
+
+/* ==========================================
+   TABELA DE VENDAS
+   ========================================== */
+section {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+table th {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 12px 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 15px;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+table tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+/* ==========================================
+   RESUMO DO CAIXA
+   ========================================== */
+section:last-of-type {
+  background: #f8f9fa;
+  padding: 20px 25px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+section:last-of-type p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+section:last-of-type p span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+hr {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Destaque do Total Geral */
+section:last-of-type p:last-of-type {
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+section:last-of-type p:last-of-type span {
+  color: var(--accent-color);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* ==========================================
+   RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
+   ========================================== */
+@media (max-width: 600px) {
+  main {
+    padding: 20px 15px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form > div:nth-child(3),
+  form > div:nth-child(4),
+  button[type="submit"] {
+    grid-column: span 1;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

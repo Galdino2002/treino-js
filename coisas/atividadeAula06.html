@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var nome = prompt("diga seu nome");
+      var salario = Number(prompt("quanto voce ganha ?"));
+      document.write(`seu nome é <strong>${nome}</strong><br>`);
+      document.write(
+        `seu nome tem <strong>${nome.length}</strong> caracteres<br>`,
+      );
+      document.write(`seu nome em maisuculo ${nome.toUpperCase()}<br>`);
+      document.write(`seu nome em minusculo ${nome.toLowerCase()}<br>`);
+
+      document.write(
+        `seu salario é de ${salario.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}<br><br>`,
+      );
+
+      if (salario > 1000) {
+        document.write(
+          `seu salario de ${salario.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} é maior que a mediia brasileira `,
+        );
+      } else {
+        document.write(
+          `sei salario de ${salario.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}é menor que a media brasileira`,
+        );
+      }
+    </script>
+  </body>
+</html>
