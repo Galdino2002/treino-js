@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Atividade 6 — Sistema de desconto</h1>
+    <br />
+    <input
+      type="text"
+      id="nomeProduto"
+      placeholder="digite o nome do nomeProduto"
+    /><br /><br />
+    <input
+      type="number"
+      id="valorProduto"
+      placeholder="digite o valor do nomeProduto"
+    /><br /><br />
+    <input
+      type="number"
+      id="descontoProduto"
+      placeholder="digite o valor do desconto"
+    /><br /><br />
+    <input type="button" id="btn" value="calcular" /><br /><br />
+    <div id="res"></div>
+
+    <script>
+      const btn1 = document.querySelector("#btn");
+      btn1.addEventListener("click", calcularDesconto);
+
+      function calcularDesconto() {
+        const nomeProduto = document.querySelector("#nomeProduto").value;
+        let resultado = document.querySelector("#res");
+        let valorProduto = document.querySelector("#valorProduto").value;
+        let descontoProduto = document.querySelector("#descontoProduto").value;
+        if (nomeProduto === "" || valorProduto === "" || descontoProduto === "")
+          return alert("precisa preencher os campos");
+
+        valorProduto = Number(valorProduto);
+        descontoProduto = Number(descontoProduto);
+
+        if (valorProduto <= 0)
+          return alert("valor do produto não pode ser igual ou menor que 0");
+        if (descontoProduto <= 0 || descontoProduto > 100)
+          return alert(
+            "desconto não pode ser nem menor que 0 muito menos maior que 100",
+          );
+
+        let desconto = (valorProduto * descontoProduto) / 100;
+        let valorTotal = valorProduto - desconto;
+
+        res.innerHTML = `
+        Produto: ${nomeProduto}<br>
+        Valor original: R$ ${valorProduto.toFixed(2)}<br>
+        Desconto: ${descontoProduto}%<br>
+        Valor do desconto: R$ ${desconto.toFixed(2)}<br>
+        Valor final: R$ ${valorTotal.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

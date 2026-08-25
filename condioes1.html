@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>sistema de trânsito</h1>
+    <br />
+    <p>a velocidade permitida na ocasião é 40km por hora</p>
+    <input
+      type="number"
+      id="velocidade"
+      placeholder="Digite a velocidade do carro"
+    />
+    <button onclick="verificarVelocidade()">Verificar</button>
+    <div id="resultado"></div>
+    <script>
+      function verificarVelocidade() {
+        var vel = Number(document.querySelector("#velocidade").value);
+        var resultado = document.querySelector("#resultado");
+        if (vel <= 40 && vel >= 21) {
+          resultado.innerHTML = `sua velocidade está dentro do limite`;
+        } else if (vel < 20) {
+          resultado.innerHTML = `sua velocidade de ${vel} está abaixo do permitido MULTADO!!`;
+        } else {
+          resultado.innerHTML = `sua velocidade de ${vel} está acima do permitido na via MULTADO!!`;
+        }
+      }
+    </script>
+  </body>
+</html>

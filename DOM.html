@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: aqua;
+        color: aliceblue;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Primeiros passos em DOM</h1>
+    <p class="loco">indo e seguindo</p>
+    <div id="divisor">clique em mim</div>
+    <p>Aprendendeo a criar <strong>Dom</strong> em java script</p>
+    <script>
+      /*var p1 = document.getElementById("divisor");// MANEIRA ANTIGA
+      p1.style.background = "green";*/
+
+      var p1 = document.querySelector("div#divisor"); // ATUAL COM QUERY SELECTOR
+      p1.style.background = "green";
+    </script>
+  </body>
+</html>

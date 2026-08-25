@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Exercício 3 — Sistema de Caixa 💰</h1>
+    valor do produto :
+    <input type="number" placeholder="valor do produto" id="valor1" />
+    valor pago cliente :
+    <input type="number" placeholder="valor pago" id="valor2" /><br />
+    <input type="button" value="calcular" onclick="calcularTroco()" />
+    <div id="resultado"></div>
+
+    <script>
+      function calcularTroco() {
+        let valorPd = Number(document.querySelector("#valor1").value); //valor do produto
+        let valorPg = Number(document.querySelector("#valor2").value); //valor pago
+        let troco = valorPg - valorPd;
+        let res = document.querySelector("#resultado");
+
+        if (valorPg < 0 || valorPd < 0)
+          return alert(`não é permitido valor negativo`);
+        if (troco === 0) {
+          res.innerHTML = `<br> produto: R$ ${valorPd} <br/><br> Pago: R$ ${valorPg} <br/>pagamento realizado com sucesso...<br/>`;
+        }
+        if (troco > 0) {
+          res.innerHTML =
+            `<br> produto: R$ ${valorPd} <br/><br> Pago: R$ ${valorPg}` +
+            `<br/>pagamento realizado com sucesso...<br/>` +
+            `troco: ${troco} `;
+        }
+        if (troco < 0) {
+          res.innerHTML =
+            `<br> produto: R$ ${valorPd} <br/><br> Pago: R$ ${valorPg}` +
+            `<br/>Valor insuficiente....<br/>` +
+            `faltam: ${troco * -1} `;
+        }
+      }
+    </script>
+  </body>
+</html>

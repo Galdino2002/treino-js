@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media escolar</title>
+  </head>
+  <body>
+    <h1>Sistema de media</h1>
+    Nota :
+    <input type="number" id="Number1" placeholder="digite a primeira nota" />
+    <br />
+    Nota :
+    <input type="number" id="Number2" placeholder="digite a segunda nota" />
+    <input
+      type="button"
+      id="CalcularMedia"
+      value="calcular Media"
+      onclick="calcularMedia()"
+    />
+    <div id="Resultado"></div>
+
+    <script>
+      function calcularMedia() {
+        var resultado = document.querySelector("#Resultado");
+        var nota1 = Number(document.querySelector("#Number1").value);
+        var nota2 = Number(document.querySelector("#Number2").value);
+        var media = (nota1 + nota2) / 2;
+        if (media >= 7) {
+          resultado.innerHTML = `sua media de ${media} é boa vc passou porem <strong>estude mais </strong>`;
+        } else {
+          resultado.innerHTML = `sua media foi ${media}. voce foi reprovado`;
+        }
+      }
+    </script>
+  </body>
+</html>

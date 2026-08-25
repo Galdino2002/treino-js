@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Atividade 5 — Sistema de aprovação</h1>
+    <br /><br />
+    <input
+      type="text"
+      id="nomeAluno"
+      placeholder="digite o nome do aluno"
+    /><br /><br />
+    <input
+      type="number"
+      id="nota1"
+      placeholder="digite a primeira nota"
+    /><br /><br />
+    <input
+      type="number"
+      id="nota2"
+      placeholder="digite a segunda nota"
+    /><br /><br />
+    <input type="button" id="btn1" value="calcular" />
+    <div id="res"></div>
+    <script>
+      const btn1 = document.querySelector("#btn1");
+      btn1.addEventListener("click", calcularMedia);
+
+      function calcularMedia() {
+        const nome = document.querySelector("#nomeAluno").value;
+        let resultado = document.querySelector("#res");
+        let notaA1 = Number(document.querySelector("#nota1").value);
+        let notaA2 = Number(document.querySelector("#nota2").value);
+        let media = (notaA1 + notaA2) / 2;
+
+        if (nome === "" || notaA1 === "" || notaA2 === "")
+          return alert(`não aceitamos campos vazios`);
+        if (notaA1 < 0 || notaA1 > 10 || notaA2 < 0 || notaA2 > 10)
+          return alert(`os numeros devem está entre 0 e 10`);
+        if (media >= 7) {
+          resultado.innerHTML = `${nome}, você foi aprovado! Média: ${media.toFixed(2)}`;
+        } else if (media < 7 && media >= 5) {
+          resultado.innerHTML = `${nome}, você está em recuperação, Média: ${media.toFixed(2)}`;
+        } else {
+          resultado.innerHTML = `${nome}, você fou reprovado, média: ${media.toFixed(2)}`;
+        }
+      }
+    </script>
+  </body>
+</html>
